@@ -33,6 +33,7 @@ class ListAllCategory extends ResourceCollection
 
     private function transformData($data) {
         return [
+            'id' => $data->id,
             'title' => $data->title,
             'description' => $data->description
         ];
