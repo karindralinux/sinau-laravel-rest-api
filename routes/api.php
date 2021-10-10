@@ -20,8 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::resource('categories', 'CategoryController');
 
-Route::get('/categories', 'CategoryController@index');
-Route::post('/categories', 'CategoryController@store');
-Route::put('/categories/{id}', 'CategoryController@update');
-Route::delete('/categories/{id}', 'CategoryController@destroy');
-Route::get('/categories/{id}', 'CategoryController@show');
+Route::group(['middleware' => 'jwtMiddleware'], function(){
+    Route::get('/categories', 'CategoryController@index');
+    Route::post('/categories', 'CategoryController@store');
+    Route::put('/categories/{id}', 'CategoryController@update');
+    Route::delete('/categories/{id}', 'CategoryController@destroy');
+    Route::get('/categories/{id}', 'CategoryController@show');
+
+    Route::post('logout', 'AuthController@logout');
+});
+
+Route::post('login', 'AuthController@login');
