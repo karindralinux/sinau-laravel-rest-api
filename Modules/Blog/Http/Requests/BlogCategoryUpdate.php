@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Modules\Blog\Http\Requests;
 
-use App\Http\Requests\ApiForm;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CategoryUpdate extends ApiForm
+class BlogCategoryUpdate extends FormRequest
 {
-    /**
+   /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -26,7 +26,7 @@ class CategoryUpdate extends ApiForm
     {
         return [
             'title' => [Rule::unique('blog_categories')],
-            'description' => 'required|unique:description',
+            'description' => 'required|unique:blog_categories,description',
         ];
     }
 }

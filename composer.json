@@ -11,6 +11,7 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "nwidart/laravel-modules": "^8.2",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
@@ -25,12 +26,15 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Modules\\": "Modules/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "App\\": "app/",
+            "Modules\\": "Modules/"
         }
     },
     "scripts": {
